@@ -1,0 +1,16 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: "Create RDS Instance"
+Resources:
+  # My DB
+  MyDB:
+    Type: "AWS::RDS::DBInstance"
+    Properties:
+      DBInstanceIdentifier: "MyNewRDS"
+      MasterUsername: "admin"
+      # Just for Practice: Never Add Passwords Hardcoded into Production Code: use KMS || Secrets Manager
+      MasterUserPassword: "password"
+      DBInstanceClass: db.t3.micro
+      Engine: "mysql"
+      EngineVersion: "8.4.8"
+      AllocatedStorage: "20"
+      BackupRetentionPeriod: 1
